@@ -77,4 +77,6 @@ while True:
 	# ok on rename
 	send_tap_abs(config[device_name]['ok_rename_x'],config[device_name]['ok_rename_y'])
 
+	time.sleep(float(config[device_name]['sleep']))
+
 	send_swipe() # next pokemon
