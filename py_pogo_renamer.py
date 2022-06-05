@@ -39,6 +39,10 @@ def send_swipe():
 	os.system("adb shell input swipe 933 1180 100 1380 200")
 	time.sleep(float(config[device_name]['sleep']))
 
+def send_backspace():
+	os.system("adb shell input keyevent --longpress KEYCODE_DEL KEYCODE_DEL KEYCODE_DEL KEYCODE_DEL KEYCODE_DEL")
+	time.sleep(float(config[device_name]['sleep']))
+
 # debug dump config
 # for key in config[device_name]:
 # 	print(key + " = " + config[device_name][key])
@@ -58,7 +62,7 @@ while True:
 	send_tap_abs(config[device_name]['calcy_button_x'],config[device_name]['calcy_button_y'])
 
 	# calyciv clear
-	send_tap_abs(config[device_name]['calcy_proceed_x'],config[device_name]['calcy_proceed_y'])
+	# send_tap_abs(config[device_name]['calcy_proceed_x'],config[device_name]['calcy_proceed_y'])
 
 	# appraise proceed center
 	send_tap_abs(config[device_name]['appraise_proceed_x'],config[device_name]['appraise_proceed_y'])
@@ -66,8 +70,7 @@ while True:
 	# rename
 	send_tap_abs(config[device_name]['rename_x'],config[device_name]['rename_y'])
 
-	# backspace on keyboard
-	send_tap_abs(config[device_name]['backspace_x'],config[device_name]['backspace_y'])
+	send_backspace()
 
 	send_paste()
 
